@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PokéFinder</title>
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="logo">
+          <a href="#"
+            ><img src="./img/pokemonLogo.png" alt="pokemon logo" />
+            <span>Finder</span></a
+          >
+        </div>
+
+        <form class="form" id="form">
+          <div class="form-control">
+            <input
+              type="text"
+              name="search"
+              id="search"
+              class="pokemon-input"
+              placeholder="Search PokéFinder"
+            />
+            <button type="submit" class="search-btn" id="submit">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+    </header>
+
+    <script src="./main.js"></script>
+  </body>
+</html>

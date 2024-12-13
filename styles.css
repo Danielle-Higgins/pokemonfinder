@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+/* Base Styles */
+body {
+  font-size: 1.6rem;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(
+      to bottom,
+      rgba(36, 35, 83, 0.8),
+      rgba(43, 27, 80, 0.8)
+    ),
+    url("./img/pokemonBackground.png") no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* ----- Header Styles ----- */
+.header {
+  width: 100%;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header .logo a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: 0.3s;
+}
+
+.header .logo a:hover {
+  transform: scale(1.05);
+}
+
+.header .logo a span {
+  color: #fff;
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-top: 6px;
+}
+
+.header .logo img {
+  width: 150px;
+}
+
+.form-control {
+  border: 3px solid transparent;
+  display: flex;
+  align-items: center;
+  width: 300px;
+  padding: 8px 16px;
+  border-radius: 50px;
+  background-color: #fff;
+}
+
+.form-control .pokemon-input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  font-size: 1.6rem;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  color: #000;
+  background-color: transparent;
+  margin-right: 10px;
+}
+
+.form-control .pokemon-input::placeholder {
+  color: #000;
+}
+
+.form-control .search-btn {
+  border: none;
+  background-color: transparent;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* ----- Utility Classes ----- */
+.container {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
