@@ -47,8 +47,9 @@ img {
 .header {
   width: 100%;
   padding: 20px;
-  background-color: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+  border-bottom: 3px solid rgba(0, 0, 0, 0.2);
 
   position: fixed;
   top: 0;
@@ -115,6 +116,24 @@ img {
   background-color: transparent;
   font-size: 2rem;
   cursor: pointer;
+}
+
+/* ----- Main Styles ----- */
+.pokemon-content {
+  padding: 140px 20px 90px;
+}
+
+.pokemon-content .container {
+  max-width: 1200px;
+  padding: 20px 30px 90px;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.2)
+  );
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 /* ----- Utility Classes ----- */
