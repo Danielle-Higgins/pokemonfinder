@@ -45,7 +45,48 @@
 
     <!----- Main ----->
     <main class="pokemon-content">
-      <div class="container"></div>
+      <div class="container">
+        <h1 class="pokemon-name">pikachu</h1>
+
+        <section class="pokemon-info">
+          <div class="pokemon-img">
+            <img
+              src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/25.png"
+              alt=""
+            />
+          </div>
+
+          <div class="pokedex-training">
+            <div class="pokedex-data">
+              <h2>Pokédex Data</h2>
+
+              <ul class="data-list">
+                <li>National Dex Number: <span id="dex-num">0025</span></li>
+                <li>Type(s): <span id="type">electric</span></li>
+                <li>Species: <span id="species">mouse pokémon</span></li>
+                <li>Height: <span id="height">0.4 m (1'04")</span></li>
+                <li>Weight: <span id="weight">6.0 kg (13.2 lbs)</span></li>
+                <li>
+                  Abilities: <span id="abilities">Static, Lightning Rod</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="training">
+              <h2>Training</h2>
+
+              <ul class="training-list">
+                <li>Capture Rate: <span id="catch-rate">190</span></li>
+                <li>Base Happiness: <span id="happiness">50</span></li>
+                <li>Base Exp: <span id="exp">112</span></li>
+                <li>Growth Rate: <span id="growth">Medium</span></li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="pokemon-stats"></section>
+      </div>
     </main>
 
     <script src="./main.js"></script>

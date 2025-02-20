@@ -16,6 +16,7 @@ body {
   font-size: 1.6rem;
   font-family: "Poppins", Arial, Helvetica, sans-serif;
   line-height: 1.5;
+  color: #fff;
 
   width: 100%;
   min-height: 100vh;
@@ -134,6 +135,59 @@ img {
   backdrop-filter: blur(10px);
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.pokemon-name {
+  text-align: center;
+  font-size: 4rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+/* ----- Pokemon Info Section ----- */
+.pokemon-info {
+  padding: 0 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.pokemon-info > *,
+.pokedex-training > * {
+  flex: 1;
+  /* border: 2px solid black; */
+}
+
+.pokemon-img {
+  max-width: 430px;
+}
+
+.pokedex-training {
+  display: flex;
+  gap: 20px;
+}
+
+.pokedex-data h2,
+.training h2 {
+  font-size: 3rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.data-list li,
+.training-list li {
+  margin: 5px 0;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 600;
+  font-size: 1.8rem;
+}
+
+.data-list span,
+.training-list span {
+  color: #fff;
+  font-weight: 500;
+  text-transform: capitalize;
 }
 
 /* ----- Utility Classes ----- */
