@@ -145,7 +145,8 @@ img {
 }
 
 /* ----- Pokemon Info Section ----- */
-.pokemon-info {
+.pokemon-info,
+.stats-additional {
   padding: 0 0 20px;
   display: flex;
   align-items: center;
@@ -153,7 +154,8 @@ img {
 }
 
 .pokemon-info > *,
-.pokedex-training > * {
+.pokedex-training > *,
+.stats-additional > * {
   flex: 1;
   /* border: 2px solid black; */
 }
@@ -168,15 +170,17 @@ img {
 }
 
 .pokedex-data h2,
-.training h2 {
+.training h2,
+.base-stats h2,
+.additional-info h2 {
   font-size: 3rem;
   font-weight: 600;
-  letter-spacing: 1px;
   margin-bottom: 10px;
 }
 
 .data-list li,
-.training-list li {
+.training-list li,
+.additional-info li {
   margin: 5px 0;
   color: rgba(255, 255, 255, 0.7);
   font-weight: 600;
@@ -184,10 +188,16 @@ img {
 }
 
 .data-list span,
-.training-list span {
+.training-list span,
+.additional-info span {
   color: #fff;
   font-weight: 500;
   text-transform: capitalize;
+}
+
+/* ----- Pokemon Stats/Additional Section -----*/
+.stats-additional .base-stats {
+  flex: 2;
 }
 
 /* ----- Utility Classes ----- */

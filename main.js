@@ -2,26 +2,26 @@
 
 // Pokemon endpoint: https://pokeapi.co/api/v2/pokemon/{id or name}
 // cries
-// forms
-// held items
-// location area encounters
+// forms ✅
+// held items ✅
 // moves
 
 // species (endpoint) ✅
-// color
-// egg groups
+// color ✅
+// egg groups ✅
 // evolution chain
 // evolves from
 // flavor text
-// generation (first appears)
-// habitat
+// generation (first appears) ✅
+// habitat ✅
 // pokedex numbers ✅
 
-// stats
+// created a bar chart using https://www.chartjs.org/
 
 class PokeFinder {
   // private variables
   #BASEURL = "https://pokeapi.co/";
+  #chartInstance = null;
 
   constructor(form, input) {
     this.form = document.getElementById(form);
@@ -66,6 +66,7 @@ class PokeFinder {
       console.log(speciesData);
 
       this.getPokemonInfo(data, speciesData);
+      this.getPokemonStats(data.stats);
     } catch (error) {
       console.log("Error:", error);
     }
@@ -131,6 +132,56 @@ class PokeFinder {
     // put growth rate into the DOM
     const growthRate = document.getElementById("growth");
     growthRate.textContent = speciesData.growth_rate.name;
+  }
+
+  // create a bar chart for pokemon stats
+  getPokemonStats(stats) {
+    const myChart = document.getElementById("myChart").getContext("2d");
+
+    // change the font size and color of the chart
+    Chart.defaults.font.size = 16;
+    Chart.defaults.color = "#fff";
+
+    const statName = stats.map((obj) => obj.stat.name);
+    const baseStat = stats.map((obj) => obj.base_stat);
+
+    // Destroy the existing chart before creating a new one
+    if (this.#chartInstance) this.#chartInstance.destroy();
+
+    // creating our chart
+    this.#chartInstance = new Chart(myChart, {
+      type: "bar", // using a bar chart
+      data: {
+        labels: statName,
+        datasets: [
+          {
+            label: "Base Stats",
+            data: baseStat,
+            backgroundColor: [
+              "rgb(233, 51, 36)",
+              "rgb(225, 132, 69)",
+              "rgb(242, 210, 84)",
+              "rgb(111, 140, 232)",
+              "rgb(138, 197, 97)",
+              "rgb(231, 97, 137)",
+            ],
+            borderWidth: 1,
+            hoverBorderWidth: 2,
+            hoverBorderColor: "#000",
+          },
+        ],
+      },
+      options: {
+        indexAxis: "y", // horizontal bar chart
+        responsive: true,
+        plugins: {
+          legend: {
+            // remove the legend from chart
+            display: false,
+          },
+        },
+      },
+    });
   }
 }
 

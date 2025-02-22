@@ -13,6 +13,10 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+
+    <!-- Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.0/chart.umd.js"></script>
+
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
@@ -48,6 +52,7 @@
       <div class="container">
         <h1 class="pokemon-name">pikachu</h1>
 
+        <!----- Pokemon Info Section ----->
         <section class="pokemon-info">
           <div class="pokemon-img">
             <img
@@ -85,7 +90,31 @@
           </div>
         </section>
 
-        <section class="pokemon-stats"></section>
+        <!----- Pokemon Stats/Additional Section ----->
+        <section class="stats-additional">
+          <div class="base-stats">
+            <h2>Base stats</h2>
+
+            <div class="chart-container">
+              <canvas id="myChart"></canvas>
+            </div>
+          </div>
+
+          <div class="additional-info">
+            <h2>Additional Info</h2>
+
+            <ul class="additional-list">
+              <li>Forms: <span id="forms">pikachu</span></li>
+              <li>
+                Held items: <span id="held-items">oran-berry, light-ball</span>
+              </li>
+              <li>Color: <span id="color">yellow</span></li>
+              <li>Egg Groups: <span id="egg-groups">ground, fairy</span></li>
+              <li>Generation: <span id="generation">1</span></li>
+              <li>Habitat: <span id="habitat">forest</span></li>
+            </ul>
+          </div>
+        </section>
       </div>
     </main>
 
