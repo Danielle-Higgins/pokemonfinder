@@ -2,18 +2,12 @@
 
 // Pokemon endpoint: https://pokeapi.co/api/v2/pokemon/{id or name}
 // cries
-// forms ✅
-// held items ✅
 // moves
 
 // species (endpoint) ✅
-// color ✅
-// egg groups ✅
 // evolution chain
 // evolves from
 // flavor text
-// generation (first appears) ✅
-// habitat ✅
 // pokedex numbers ✅
 
 // created a bar chart using https://www.chartjs.org/
@@ -48,6 +42,7 @@ class PokeFinder {
     this.input.value = "";
   }
 
+  // get pokemon data
   async getPokemon(pokemonName) {
     const pokeapi = `${this.#BASEURL}api/v2/pokemon/${pokemonName}`;
 
@@ -66,12 +61,13 @@ class PokeFinder {
       console.log(speciesData);
 
       this.getPokemonInfo(data, speciesData);
-      this.getPokemonStats(data.stats);
+      this.getStatsAndMore(data, speciesData);
     } catch (error) {
       console.log("Error:", error);
     }
   }
 
+  // get the pokemon info
   getPokemonInfo(data, speciesData) {
     // pokemon name into the DOM
     const pokemonName = document.querySelector(".pokemon-name");
@@ -86,6 +82,7 @@ class PokeFinder {
     this.getTrainingInfo(data, speciesData);
   }
 
+  // get the pokemons pokedex data
   getPokedexData(data, speciesData) {
     // national dex num into the DOM
     const nationalDex = document.getElementById("dex-num");
@@ -116,6 +113,7 @@ class PokeFinder {
       .join(", ");
   }
 
+  // get training info of the pokemon
   getTrainingInfo(data, speciesData) {
     // put capture rate into the DOM
     const captureRate = document.getElementById("catch-rate");
@@ -132,6 +130,12 @@ class PokeFinder {
     // put growth rate into the DOM
     const growthRate = document.getElementById("growth");
     growthRate.textContent = speciesData.growth_rate.name;
+  }
+
+  // get stats and additional info
+  getStatsAndMore(data, speciesData) {
+    this.getPokemonStats(data.stats);
+    this.getAdditionalInfo(data, speciesData);
   }
 
   // create a bar chart for pokemon stats
@@ -182,6 +186,40 @@ class PokeFinder {
         },
       },
     });
+  }
+
+  // get additional pokemon info
+  getAdditionalInfo(data, speciesData) {
+    // put pokemon forms into DOM
+    const forms = document.getElementById("forms");
+    forms.textContent = data.forms.map((obj) => obj.name).join(", ");
+
+    // put held items into DOM
+    const heldItems = document.getElementById("held-items");
+    if (data.held_items.length === 0) heldItems.textContent = "none";
+    else
+      heldItems.textContent = data.held_items
+        .map((obj) => obj.item.name)
+        .join(", ");
+
+    // put color into DOM
+    const color = document.getElementById("color");
+    color.textContent = speciesData.color.name;
+
+    // put egg groups into DOM
+    const eggGroups = document.getElementById("egg-groups");
+    eggGroups.textContent = speciesData.egg_groups
+      .map((obj) => obj.name)
+      .join(", ");
+
+    // put generation into DOM
+    const generation = document.getElementById("generation");
+    generation.textContent = speciesData.generation.name;
+
+    // put habitat into DOM
+    const habitat = document.getElementById("habitat");
+    if (!speciesData.habitat) habitat.textContent = "none";
+    else habitat.textContent = speciesData.habitat.name;
   }
 }
 
