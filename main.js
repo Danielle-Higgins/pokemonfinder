@@ -1,12 +1,10 @@
 // API Used: https://pokeapi.co/
 
 // Pokemon endpoint: https://pokeapi.co/api/v2/pokemon/{id or name}
-// cries
 // moves
 
 // species (endpoint) ✅
 // evolution chain
-// evolves from
 // flavor text
 // pokedex numbers ✅
 
@@ -130,6 +128,12 @@ class PokeFinder {
     // put growth rate into the DOM
     const growthRate = document.getElementById("growth");
     growthRate.textContent = speciesData.growth_rate.name;
+
+    // put pokemon cries into the DOM
+    const cries = document.getElementById("pokemon-cries");
+    const source = document.querySelector("#pokemon-cries source");
+    source.src = data.cries.latest;
+    cries.load();
   }
 
   // get stats and additional info

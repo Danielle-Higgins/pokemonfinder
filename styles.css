@@ -195,6 +195,33 @@ img {
   text-transform: capitalize;
 }
 
+.training .training-list {
+  margin-bottom: 20px;
+}
+
+audio::-webkit-media-controls-panel {
+  background-color: #cc0000;
+}
+
+audio::-webkit-media-controls-play-button {
+  background-color: #fff;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+audio::-webkit-media-controls-current-time-display {
+  color: #fff;
+}
+
+audio::-webkit-media-controls-time-remaining-display {
+  color: #fff;
+}
+
+audio::-webkit-media-controls-mute-button {
+  background-color: #fff;
+  border-radius: 50%;
+}
+
 /* ----- Pokemon Stats/Additional Section -----*/
 .stats-additional .base-stats {
   flex: 2;
