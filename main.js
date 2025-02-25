@@ -4,7 +4,6 @@
 // moves
 
 // species (endpoint) ✅
-// evolution chain
 // flavor text
 // pokedex numbers ✅
 
@@ -34,14 +33,14 @@ class PokeFinder {
 
     // check if input is empty
     if (!pokemonName) return;
-    else this.getPokemon(pokemonName);
+    else this.getPokemonData(pokemonName);
 
     // reset the input value
     this.input.value = "";
   }
 
   // get pokemon data
-  async getPokemon(pokemonName) {
+  async getPokemonData(pokemonName) {
     const pokeapi = `${this.#BASEURL}api/v2/pokemon/${pokemonName}`;
 
     try {
@@ -58,8 +57,17 @@ class PokeFinder {
       const speciesData = await speciesResponse.json();
       console.log(speciesData);
 
+      // extract the evolution chain data too
+      const evolutionResponse = await fetch(speciesData.evolution_chain.url);
+      if (!evolutionResponse.ok)
+        throw new Error("Network response was not ok!");
+
+      const evolutionData = await evolutionResponse.json();
+      console.log(evolutionData);
+
       this.getPokemonInfo(data, speciesData);
       this.getStatsAndMore(data, speciesData);
+      this.getEvolutionChain(evolutionData);
     } catch (error) {
       console.log("Error:", error);
     }
@@ -224,6 +232,56 @@ class PokeFinder {
     const habitat = document.getElementById("habitat");
     if (!speciesData.habitat) habitat.textContent = "none";
     else habitat.textContent = speciesData.habitat.name;
+  }
+
+  // get the evolution chain
+  getEvolutionChain(evolutionData) {
+    const evolutions = document.querySelector(".evolutions");
+
+    // if the div is populated, delete it
+    if (evolutions) evolutions.innerHTML = "";
+
+    // object of the pokemon in the chain
+    const evolutionChain = [];
+
+    let currentPokemon = evolutionData.chain;
+
+    // while currentPokemon is true meaning not []
+    do {
+      evolutionChain.push({
+        name: currentPokemon.species.name,
+        sprite: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${
+          currentPokemon.species.url.split("/")[6]
+        }.png`,
+      });
+      // set what that pokemon evolves to
+      currentPokemon = currentPokemon.evolves_to[0];
+    } while (currentPokemon);
+
+    // console.log(evolutionChain);
+
+    evolutionChain.forEach((pokemon, index) => {
+      const div = document.createElement("div");
+
+      const img = document.createElement("img");
+      img.src = pokemon.sprite;
+      img.alt = pokemon.name;
+      div.appendChild(img);
+
+      const span = document.createElement("span");
+      span.textContent = pokemon.name;
+      div.appendChild(span);
+
+      evolutions.appendChild(div);
+
+      // if were not at the end of the array
+      if (index !== evolutionChain.length - 1) {
+        const i = document.createElement("i");
+        i.classList.add("fa-solid");
+        i.classList.add("fa-arrow-right");
+        evolutions.appendChild(i);
+      }
+    });
   }
 }
 

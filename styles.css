@@ -172,7 +172,8 @@ img {
 .pokedex-data h2,
 .training h2,
 .base-stats h2,
-.additional-info h2 {
+.additional-info h2,
+.evolution-chain h2 {
   font-size: 3rem;
   font-weight: 600;
   margin-bottom: 10px;
@@ -225,6 +226,33 @@ audio::-webkit-media-controls-mute-button {
 /* ----- Pokemon Stats/Additional Section -----*/
 .stats-additional .base-stats {
   flex: 2;
+}
+
+/* ----- Pokemon Evolution Chain Section -----*/
+.evolution-chain {
+  padding: 20px 0;
+}
+
+.evolutions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  text-align: center;
+}
+
+.evolutions div {
+  flex-basis: 200px;
+}
+
+.evolutions span {
+  display: block;
+  text-transform: capitalize;
+  margin-top: 20px;
+}
+
+.evolutions i {
+  font-size: 4rem;
 }
 
 /* ----- Utility Classes ----- */
