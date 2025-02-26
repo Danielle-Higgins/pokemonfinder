@@ -1,11 +1,6 @@
 // API Used: https://pokeapi.co/
 
-// Pokemon endpoint: https://pokeapi.co/api/v2/pokemon/{id or name}
 // moves
-
-// species (endpoint) ✅
-// flavor text
-// pokedex numbers ✅
 
 // created a bar chart using https://www.chartjs.org/
 
@@ -63,11 +58,12 @@ class PokeFinder {
         throw new Error("Network response was not ok!");
 
       const evolutionData = await evolutionResponse.json();
-      console.log(evolutionData);
+      // console.log(evolutionData);
 
       this.getPokemonInfo(data, speciesData);
       this.getStatsAndMore(data, speciesData);
       this.getEvolutionChain(evolutionData);
+      this.getPokemonDescription(speciesData);
     } catch (error) {
       console.log("Error:", error);
     }
@@ -281,6 +277,55 @@ class PokeFinder {
         i.classList.add("fa-arrow-right");
         evolutions.appendChild(i);
       }
+    });
+  }
+
+  // get the flavor text
+  getPokemonDescription(speciesData) {
+    let description = speciesData.flavor_text_entries;
+
+    description = description.filter((obj) => obj.language.name === "en");
+
+    description = description.map((obj) => ({
+      flavorText: obj.flavor_text,
+      version: obj.version.name,
+    }));
+
+    description = description.reduce((acc, obj) => {
+      // find the obj in acc where flavor matches flavor in description array
+      const existing = acc.find((item) => item.flavorText === obj.flavorText);
+
+      // if so update versions property array value in acc
+      if (existing) {
+        existing.versions.push(obj.version);
+      } else {
+        // otherwise create new object
+        acc.push({
+          flavorText: obj.flavorText,
+          versions: [obj.version],
+        });
+      }
+      return acc;
+    }, []);
+    // console.log(description);
+
+    const descriptionList = document.querySelector(".description");
+    description.forEach((obj) => {
+      const li = document.createElement("li");
+
+      const div = document.createElement("div");
+      obj.versions.forEach((item) => {
+        const span = document.createElement("span");
+        span.textContent = item;
+        div.appendChild(span);
+      });
+      li.appendChild(div);
+
+      const para = document.createElement("p");
+      para.textContent = obj.flavorText;
+      li.appendChild(para);
+
+      descriptionList.appendChild(li);
     });
   }
 }
