@@ -1,7 +1,4 @@
 // API Used: https://pokeapi.co/
-
-// moves
-
 // created a bar chart using https://www.chartjs.org/
 
 class PokeFinder {
@@ -310,6 +307,9 @@ class PokeFinder {
     // console.log(description);
 
     const descriptionList = document.querySelector(".description");
+
+    if (descriptionList) descriptionList.innerHTML = "";
+
     description.forEach((obj) => {
       const li = document.createElement("li");
 
