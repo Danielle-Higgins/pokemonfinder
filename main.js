@@ -40,14 +40,14 @@ class PokeFinder {
       if (!response.ok) throw new Error("Network response was not ok!");
 
       const data = await response.json();
-      console.log(data);
+      // console.log(data);
 
       // extract the species data too
       const speciesResponse = await fetch(data.species.url);
       if (!speciesResponse.ok) throw new Error("Network response was not ok!");
 
       const speciesData = await speciesResponse.json();
-      console.log(speciesData);
+      // console.log(speciesData);
 
       // extract the evolution chain data too
       const evolutionResponse = await fetch(speciesData.evolution_chain.url);
