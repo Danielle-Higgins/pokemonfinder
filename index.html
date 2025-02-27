@@ -50,89 +50,87 @@
     <!----- Main ----->
     <main class="pokemon-content">
       <div class="container">
-        <h1 class="pokemon-name">pikachu</h1>
+        <div class="pokemon-finder">
+          <h1 class="pokemon-name"></h1>
 
-        <!----- Pokemon Info Section ----->
-        <section class="pokemon-info">
-          <div class="pokemon-img">
-            <img
-              src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/25.png"
-              alt=""
-            />
-          </div>
+          <!----- Pokemon Info Section ----->
+          <section class="pokemon-info">
+            <div class="pokemon-img">
+              <img src="" alt="" />
+            </div>
 
-          <div class="pokedex-training">
-            <div class="pokedex-data">
-              <h2>Pokédex Data</h2>
+            <div class="pokedex-training">
+              <div class="pokedex-data">
+                <h2>Pokédex Data</h2>
 
-              <ul class="data-list">
-                <li>National Dex Number: <span id="dex-num">0025</span></li>
-                <li>Type(s): <span id="type">electric</span></li>
-                <li>Species: <span id="species">mouse pokémon</span></li>
-                <li>Height: <span id="height">0.4 m (1'04")</span></li>
-                <li>Weight: <span id="weight">6.0 kg (13.2 lbs)</span></li>
+                <ul class="data-list">
+                  <li>National Dex Number: <span id="dex-num"></span></li>
+                  <li>Type(s): <span id="type"></span></li>
+                  <li>Species: <span id="species"></span></li>
+                  <li>Height: <span id="height"></span></li>
+                  <li>Weight: <span id="weight"></span></li>
+                  <li>Abilities: <span id="abilities"></span></li>
+                </ul>
+              </div>
+
+              <div class="training">
+                <h2>Training</h2>
+
+                <ul class="training-list">
+                  <li>Capture Rate: <span id="catch-rate"></span></li>
+                  <li>Base Happiness: <span id="happiness"></span></li>
+                  <li>Base Exp: <span id="exp"></span></li>
+                  <li>Growth Rate: <span id="growth"></span></li>
+                </ul>
+
+                <audio id="pokemon-cries" controls>
+                  <source src="" type="audio/ogg" />
+                </audio>
+              </div>
+            </div>
+          </section>
+
+          <!----- Pokemon Stats/Additional Section ----->
+          <section class="stats-additional">
+            <div class="base-stats">
+              <h2>Base Stats</h2>
+
+              <div class="chart-container">
+                <canvas id="myChart"></canvas>
+              </div>
+            </div>
+
+            <div class="additional-info">
+              <h2>Additional Info</h2>
+
+              <ul class="additional-list">
+                <li>Forms: <span id="forms"></span></li>
                 <li>
-                  Abilities: <span id="abilities">Static, Lightning Rod</span>
+                  Held items:
+                  <span id="held-items"></span>
                 </li>
+                <li>Color: <span id="color"></span></li>
+                <li>Egg Groups: <span id="egg-groups"></span></li>
+                <li>First Appears: <span id="generation"></span></li>
+                <li>Habitat: <span id="habitat"></span></li>
               </ul>
             </div>
+          </section>
 
-            <div class="training">
-              <h2>Training</h2>
+          <!----- Pokemon Evolution Chain Section ----->
+          <section class="evolution-chain">
+            <h2>Evolution Chart</h2>
 
-              <ul class="training-list">
-                <li>Capture Rate: <span id="catch-rate">190</span></li>
-                <li>Base Happiness: <span id="happiness">50</span></li>
-                <li>Base Exp: <span id="exp">112</span></li>
-                <li>Growth Rate: <span id="growth">Medium</span></li>
-              </ul>
+            <div class="evolutions"></div>
+          </section>
 
-              <audio id="pokemon-cries" controls>
-                <source src="" type="audio/ogg" />
-              </audio>
-            </div>
-          </div>
-        </section>
+          <!----- Pokemon Description Section ----->
+          <section class="pokedex-entries">
+            <h2>Pokédex Entries</h2>
 
-        <!----- Pokemon Stats/Additional Section ----->
-        <section class="stats-additional">
-          <div class="base-stats">
-            <h2>Base Stats</h2>
-
-            <div class="chart-container">
-              <canvas id="myChart"></canvas>
-            </div>
-          </div>
-
-          <div class="additional-info">
-            <h2>Additional Info</h2>
-
-            <ul class="additional-list">
-              <li>Forms: <span id="forms">pikachu</span></li>
-              <li>
-                Held items: <span id="held-items">oran-berry, light-ball</span>
-              </li>
-              <li>Color: <span id="color">yellow</span></li>
-              <li>Egg Groups: <span id="egg-groups">ground, fairy</span></li>
-              <li>First Appears: <span id="generation">1</span></li>
-              <li>Habitat: <span id="habitat">forest</span></li>
-            </ul>
-          </div>
-        </section>
-
-        <!----- Pokemon Evolution Chain Section ----->
-        <section class="evolution-chain">
-          <h2>Evolution Chart</h2>
-
-          <div class="evolutions"></div>
-        </section>
-
-        <!----- Pokemon Description Section ----->
-        <section class="pokedex-entries">
-          <h2>Pokédex Entries</h2>
-
-          <ul class="description"></ul>
-        </section>
+            <ul class="description"></ul>
+          </section>
+        </div>
       </div>
     </main>
 

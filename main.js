@@ -33,6 +33,7 @@ class PokeFinder {
 
   // get pokemon data
   async getPokemonData(pokemonName) {
+    document.querySelector(".pokemon-finder").style.display = "block";
     const pokeapi = `${this.#BASEURL}api/v2/pokemon/${pokemonName}`;
 
     try {
