@@ -33,7 +33,6 @@ class PokeFinder {
 
   // get pokemon data
   async getPokemonData(pokemonName) {
-    document.querySelector(".pokemon-finder").style.display = "block";
     const pokeapi = `${this.#BASEURL}api/v2/pokemon/${pokemonName}`;
 
     try {
@@ -65,6 +64,7 @@ class PokeFinder {
     } catch (error) {
       console.log("Error:", error);
     }
+    document.querySelector(".pokemon-finder").style.display = "block";
   }
 
   // get the pokemon info
