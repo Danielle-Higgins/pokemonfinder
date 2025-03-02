@@ -1,1 +1,1 @@
-# pok-finder
+# Pokémon-Finder
