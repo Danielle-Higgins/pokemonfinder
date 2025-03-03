@@ -1,1 +1,5 @@
-# Pokémon-Finder: <a href="" target="_blank">Visit Here</a>
+# Pokémon-Finder: <a href="https://danielle-higgins.github.io/pokemonfinder/" target="_blank">Visit Here</a>
+
+<p>
+  <img src="">
+</p>
